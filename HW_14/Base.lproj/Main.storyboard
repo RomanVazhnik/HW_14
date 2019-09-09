@@ -49,7 +49,7 @@
                                     <outlet property="countTextLabel" destination="4qi-le-fld" id="JsO-9G-VE7"/>
                                     <outlet property="textField" destination="Aeo-sP-5Cm" id="ePk-Vc-PmY"/>
                                     <outlet property="textLabel" destination="4qi-le-fld" id="os5-yi-cXG"/>
-                                    <segue destination="Ihy-I9-Qgu" kind="show" id="5NJ-xQ-pOC"/>
+                                    <segue destination="Ihy-I9-Qgu" kind="show" identifier="toSecondVC" id="5NJ-xQ-pOC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -8,12 +8,12 @@
 
 import UIKit
 
+// Text Field Delegate
 extension TasksTableViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let indexTask = textField.tag
         guard let text = textField.text, !text.isEmpty else { return }
-        print("tag = \(textField.tag)") 
         DataBaseManager.shared.editTaskInList(newTaskName: text, index: index, indexTask: indexTask)
     }
     

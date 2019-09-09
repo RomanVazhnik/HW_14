@@ -10,7 +10,9 @@ import RealmSwift
 
 class MainTableViewController: UITableViewController {
 
-    private var tasks: Results<TasksList>!
+    var tasks: Results<TasksList>!
+    
+    private let refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,15 @@ class MainTableViewController: UITableViewController {
         
         setupNavigationBar()
         
+        // add refresh on table
+        refresh.addTarget(self, action: #selector(reloadTable), for: .valueChanged)
+        tableView.addSubview(refresh)
+        
+    }
+    
+    @objc private func reloadTable() {
+        tableView.reloadData()
+        refresh.endRefreshing()
     }
     
     @objc private func addTask() {
@@ -33,44 +44,9 @@ class MainTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(addTask))
-    }
-    
-    // MARK: - Table view data source
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MainTableViewCell
-        cell.textField.delegate = self
-        cell.textField.tag = indexPath.row
-        
-        let name = tasks[indexPath.row].name
-        let count = tasks[indexPath.row].tasks.count
-        
-        cell.setValues(textForTextField: name, count: count)
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            DataBaseManager.shared.deleteTask(for: indexPath.row)
-            //tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.reloadData()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let taskVC = segue.destination as! TasksTableViewController
-            taskVC.tasksList = tasks[indexPath.row]
-            taskVC.index = indexPath.row
-        }
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = .white
     }
 
 }

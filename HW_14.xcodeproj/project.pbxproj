@@ -21,6 +21,8 @@
 		F6486F2D2324FEE800C7E092 /* Extension + MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6486F2C2324FEE800C7E092 /* Extension + MainTableViewController.swift */; };
 		F6486F322325179F00C7E092 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6486F312325179F00C7E092 /* TaskTableViewCell.swift */; };
 		F6486F362325202500C7E092 /* Extension + TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6486F352325202500C7E092 /* Extension + TaskTableViewController.swift */; };
+		F6486F3823261AE400C7E092 /* Extension DataSource + TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6486F3723261AE400C7E092 /* Extension DataSource + TaskTableViewController.swift */; };
+		F6486F3A23261B9600C7E092 /* Extension DataSource + MainTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6486F3923261B9600C7E092 /* Extension DataSource + MainTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		F6486F2C2324FEE800C7E092 /* Extension + MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + MainTableViewController.swift"; sourceTree = "<group>"; };
 		F6486F312325179F00C7E092 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		F6486F352325202500C7E092 /* Extension + TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + TaskTableViewController.swift"; sourceTree = "<group>"; };
+		F6486F3723261AE400C7E092 /* Extension DataSource + TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension DataSource + TaskTableViewController.swift"; sourceTree = "<group>"; };
+		F6486F3923261B9600C7E092 /* Extension DataSource + MainTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension DataSource + MainTVC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				F6486F1F23242E1D00C7E092 /* MainTableViewController.swift */,
 				F6486F292324EC1A00C7E092 /* MainTableViewCell.swift */,
 				F6486F2C2324FEE800C7E092 /* Extension + MainTableViewController.swift */,
+				F6486F3923261B9600C7E092 /* Extension DataSource + MainTVC.swift */,
 			);
 			path = mainTableViewController;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				F6486F2123242E3300C7E092 /* TasksTableViewController.swift */,
 				F6486F312325179F00C7E092 /* TaskTableViewCell.swift */,
 				F6486F352325202500C7E092 /* Extension + TaskTableViewController.swift */,
+				F6486F3723261AE400C7E092 /* Extension DataSource + TaskTableViewController.swift */,
 			);
 			path = taskTableViewController;
 			sourceTree = "<group>";
@@ -247,6 +253,8 @@
 				F6486F2223242E3300C7E092 /* TasksTableViewController.swift in Sources */,
 				F6486F322325179F00C7E092 /* TaskTableViewCell.swift in Sources */,
 				F6486F2423242F0400C7E092 /* List.swift in Sources */,
+				F6486F3A23261B9600C7E092 /* Extension DataSource + MainTVC.swift in Sources */,
+				F6486F3823261AE400C7E092 /* Extension DataSource + TaskTableViewController.swift in Sources */,
 				F6486F2623242FE200C7E092 /* Task.swift in Sources */,
 				F6486F2A2324EC1A00C7E092 /* MainTableViewCell.swift in Sources */,
 				F6486F362325202500C7E092 /* Extension + TaskTableViewController.swift in Sources */,
