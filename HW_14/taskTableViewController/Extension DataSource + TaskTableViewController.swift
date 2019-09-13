@@ -33,7 +33,11 @@ extension TasksTableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            DataBaseManager.shared.deleteTaskInList(index: index, indexTask: indexPath.row)
+            if indexPath.section == 0 {
+                DataBaseManager.shared.deleteTaskInList(task: uncomplitedTasksList[indexPath.row])
+            } else {
+                DataBaseManager.shared.deleteTaskInList(task: complitedTasksList[indexPath.row])
+            }
             tag = 0
             tableView.reloadData()
         }
@@ -47,13 +51,9 @@ extension TasksTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tag = 0
         if indexPath.section == 0 {
-            try! realm.write {
-                uncomplitedTasksList[indexPath.row].isComplit.toggle()
-            }
+            DataBaseManager.shared.changeComplitState(task: uncomplitedTasksList[indexPath.row])
         } else {
-            try! realm.write {
-                complitedTasksList[indexPath.row].isComplit.toggle()
-            }
+            DataBaseManager.shared.changeComplitState(task: complitedTasksList[indexPath.row])
         }
         tableView.reloadData()
     }

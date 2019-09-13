@@ -27,6 +27,11 @@ class MainTableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
+    
     @objc private func reloadTable() {
         tableView.reloadData()
         refresh.endRefreshing()

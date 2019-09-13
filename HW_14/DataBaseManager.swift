@@ -20,18 +20,31 @@ class DataBaseManager {
     }
     
     // Добавить задачу в taskList
-    func addTaskInTaskList(_ task: Task, index: Int) {
-        let object = realm.objects(TasksList.self)[index]
+    func addTaskInTaskList(taskList: TasksList, task: Task) {
         try! realm.write {
-            object.tasks.append(task)
+            taskList.tasks.append(task)
         }
     }
     
     // Поменять свойство isComplit в task
-    func changeComplitState(index: Int, indexTask: Int) {
-        let object = realm.objects(TasksList.self)[index]
+    func changeComplitState(task: Task) {
         try! realm.write {
-            object.tasks[indexTask].isComplit.toggle()
+            task.isComplit.toggle()
+        }
+    }
+    
+    // Удалить задачу в листе
+    func deleteTaskInList(task: Task) {
+        try! realm.write {
+            realm.delete(task)
+        }
+    }
+    
+    // Удалить лист
+    func deleteTaskList(taskList: TasksList) {
+        try! realm.write {
+            realm.delete(taskList.tasks)
+            realm.delete(taskList)
         }
     }
     
@@ -44,26 +57,9 @@ class DataBaseManager {
     }
     
     // Поменять task в TaskList
-    func editTaskInList(newTaskName: String, index: Int, indexTask: Int) {
-        let list = realm.objects(TasksList.self)[index]
+    func editTaskInList(newTaskName: String, index: Int, taskList: TasksList) {
         try! realm.write {
-            list.tasks[indexTask].name = newTaskName
-        }
-    }
-    
-    // Удалить задачу в листе
-    func deleteTaskInList(index: Int, indexTask: Int) {
-        let task = realm.objects(TasksList.self)[index].tasks[indexTask]
-        try! realm.write {
-            realm.delete(task)
-        }
-    }
-    
-    // Удалить лист
-    func deleteTaskList(for index: Int) {
-        let task = realm.objects(TasksList.self)[index]
-        try! realm.write {
-            realm.delete(task)            
+            taskList.tasks[index].name = newTaskName
         }
     }
     

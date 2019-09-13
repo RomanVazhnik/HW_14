@@ -11,7 +11,6 @@ import RealmSwift
 class TasksTableViewController: UITableViewController {
     
     var tasksList: TasksList!
-    var index: Int!
     
     var uncomplitedTasksList: Results<Task>!
     var complitedTasksList: Results<Task>!
@@ -28,7 +27,7 @@ class TasksTableViewController: UITableViewController {
     
     @objc private func addTask() {
         let newTask = Task(value: ["name": "NewTask"])
-        DataBaseManager.shared.addTaskInTaskList(newTask, index: index)
+        DataBaseManager.shared.addTaskInTaskList(taskList: tasksList, task: newTask)
         tableView.insertRows(at: [IndexPath(row: uncomplitedTasksList.count-1, section: 0)], with: .automatic)
     }
     

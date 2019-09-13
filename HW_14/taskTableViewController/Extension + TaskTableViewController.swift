@@ -14,7 +14,7 @@ extension TasksTableViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let indexTask = textField.tag
         guard let text = textField.text, !text.isEmpty else { return }
-        DataBaseManager.shared.editTaskInList(newTaskName: text, index: index, indexTask: indexTask)
+        DataBaseManager.shared.editTaskInList(newTaskName: text, index: indexTask, taskList: tasksList)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

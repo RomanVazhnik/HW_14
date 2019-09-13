@@ -35,7 +35,7 @@ extension MainTableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            DataBaseManager.shared.deleteTaskList(for: indexPath.row)
+            DataBaseManager.shared.deleteTaskList(taskList: tasks[indexPath.row])
             //tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.reloadData()
         }
@@ -46,7 +46,6 @@ extension MainTableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             let taskVC = segue.destination as! TasksTableViewController
             taskVC.tasksList = tasks[indexPath.row]
-            taskVC.index = indexPath.row
         }
     }
     
